@@ -1,6 +1,16 @@
 ParameterDefinitions = { 
 
 {g1,        { Description -> "Hypercharge-Coupling"}},
+{gX,       {LaTeX -> "g_X",
+             LesHouches -> {GAUGE,4},
+             OutputName -> gX}},
+
+{g1X,       {LaTeX -> "\\tilde{g}",
+             LesHouches -> {GAUGE,10},
+             OutputName -> g1X}},
+{gX1,       {LaTeX -> "\\bar{g}",
+             LesHouches -> {GAUGE,11},
+             OutputName -> gX1}},
 {g2,        { Description -> "Left-Coupling"}},
 {g3,        { Description -> "Strong-Coupling"}},    
 {AlphaS,    {Description -> "Alpha Strong"}},	
