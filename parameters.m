@@ -34,7 +34,20 @@ ParameterDefinitions = {
              									{0, Mass[Fe,2],0},
              									{0, 0, Mass[Fe,3]}}}}, 
                                                                             
-                                                                           
+{mS2,       {LaTeX -> "m_S^2",
+             LesHouches -> {BSM,1},
+             OutputName -> MS2}},
+{L1,       {LaTeX -> "\\lambda_1",
+             LesHouches -> {BSM,2},
+             OutputName -> LAM1}},
+{L2,       {LaTeX -> "\\lambda_2",
+             LesHouches -> {BSM,3},
+             OutputName -> LAM2}},
+{vS,      {  LaTeX -> "vS",
+             Dependence ->  None,
+             OutputName -> "vS",
+             Real -> True,
+             LesHouches -> {BS,4} }},
 {mu2,         { Description -> "SM Mu Parameter",
                 OutputName->m2SM}},                                        
 {\[Lambda],  { Description -> "SM Higgs Selfcouplings",
@@ -44,23 +57,28 @@ ParameterDefinitions = {
                DependenceSPheno -> None,
                OutputName -> vvSM}},
 {mH2,        { Description -> "SM Higgs Mass Parameter"}},
-
-{ThetaW,    { Description -> "Weinberg-Angle",
+{ThetaWp,    { Description -> "Theta'", DependenceNum -> None  }},
+{ThetaW,     { Description -> "Weinberg-Angle",
               DependenceNum -> ArcSin[Sqrt[1 - Mass[VWp]^2/Mass[VZ]^2]]  }},
-
-{ZZ, {Description -> "Photon-Z Mixing Matrix"}},
 {ZW, {Description -> "W Mixing Matrix",
        Dependence ->   1/Sqrt[2] {{1, 1},
                   {\[ImaginaryI],-\[ImaginaryI]}} }},
-
+{ZZ, {Description ->   "Photon-Z-Z' Mixing Matrix"}},
 
 {Vu,        {Description ->"Left-Up-Mixing-Matrix"}},
 {Vd,        {Description ->"Left-Down-Mixing-Matrix"}},
 {Uu,        {Description ->"Right-Up-Mixing-Matrix"}},
 {Ud,        {Description ->"Right-Down-Mixing-Matrix"}}, 
 {Ve,        {Description ->"Left-Lepton-Mixing-Matrix"}},
-{Ue,        {Description ->"Right-Lepton-Mixing-Matrix"}}
-
+{Ue,        {Description ->"Right-Lepton-Mixing-Matrix"}},
+{ZH,        { Description->"Scalar-Mixing-Matrix",
+               Dependence -> None,
+               DependenceOptional -> None,
+               DependenceNum -> None   }},
+{ZA,        { Description->"Pseudo-Scalar-Mixing-Matrix",
+                Dependence -> None,
+               DependenceOptional -> None,
+               DependenceNum -> None   }}
  }; 
  
 

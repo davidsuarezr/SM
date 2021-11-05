@@ -1,12 +1,23 @@
 OnlyLowEnergySPheno = True;
 
-MINPAR={{1,LambdaIN}};
+MINPAR={{1,LambdaIN},
+{2,gXINPUT},
+{3,g1XINPUT},
+{4,gX1INPUT},
+{5,L1INPUT},
+{6,L2INPUT}
+};
 
 
-ParametersToSolveTadpoles = {mu2};
+ParametersToSolveTadpoles = {mu2, mS2};
 
 BoundaryLowScaleInput={
- {\[Lambda],LambdaIN}
+  {\[Lambda],LambdaIN},
+  {gX,gXINPUT},
+  {g1X,g1XINPUT},
+  {gX,gX1INPUT},
+  {L1,L1INPUT},
+  {L2,L2INPUT}
 };
 
 DEFINITION[MatchingConditions]= 
@@ -19,7 +30,7 @@ DEFINITION[MatchingConditions]=
  {g3, g3SM}};
 
 
-ListDecayParticles = {Fu,Fe,Fd,hh};
+ListDecayParticles = {Fu,Fe,Fd,hh, VZp, Ah};
 ListDecayParticles3B = {{Fu,"Fu.f90"},{Fe,"Fe.f90"},{Fd,"Fd.f90"}};
 
 DefaultInputValues ={LambdaIN -> 0.27};

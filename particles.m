@@ -19,12 +19,19 @@ ParticleDefinitions[GaugeES] = {
                
     
       {VB,   { Description -> "B-Boson"}},                                                   
-      {VG,   { Description -> "Gluon"}},          
+      {VBp,  { Description -> "B'-Boson"}},
+      {VG,   { Description -> "Gluon"}},
       {VWB,  { Description -> "W-Bosons"}},          
       {gB,   { Description -> "B-Boson Ghost"}},                                                   
-      {gG,   { Description -> "Gluon Ghost" }},          
-      {gWB,  { Description -> "W-Boson Ghost"}}
-      
+      {gBp,   { Description -> "B'-Boson Ghost"}},
+      {gG,   { Description -> "Gluon Ghost" }},
+      {gWB,  { Description -> "W-Boson Ghost"}},
+      {s, {Description -> "BSM field S⁰",
+			OutputName -> "S",
+			ElectricCharge -> 0,
+			LaTeX -> "S",
+            FeynArtsNr -> 800
+		}}
       };
       
       
@@ -33,15 +40,21 @@ ParticleDefinitions[GaugeES] = {
   ParticleDefinitions[EWSB] = {
             
       
-    {hh   ,  {  Description -> "Higgs",
-                 PDG -> {25},
-                 PDG.IX -> {101000001} }}, 
-                 
+    {hh   ,  { Description -> "Higgs",
+                 PDG -> {25,35},
+                 Width -> Automatic,
+                 Mass ->LesHouches,
+                 FeynArtsNr -> 1,
+                 LaTeX -> "h",
+                 OutputName -> "h" }},
+
      {Ah   ,  {  Description -> "Pseudo-Scalar Higgs",
-                 PDG -> {0},
-                 PDG.IX ->{0},
-                 Mass -> {0},
-                 Width -> {0} }},                       
+                 PDG -> {0,0},
+                 Width -> {0, External},
+                 Mass ->LesHouches,
+                 FeynArtsNr -> 2,
+                 LaTeX -> "A_h",
+                 OutputName -> "Ah" }},
       
       
      {Hp,     { Description -> "Charged Higgs", 
@@ -56,20 +69,33 @@ ParticleDefinitions[GaugeES] = {
       
       {VP,   { Description -> "Photon"}}, 
       {VZ,   { Description -> "Z-Boson",
-      			 Goldstone -> Ah }}, 
+      			 Goldstone -> Ah[{1}] }},
       {VG,   { Description -> "Gluon" }},          
       {VWp,  { Description -> "W+ - Boson",
-      			Goldstone -> Hp }},         
+      			Goldstone -> Hp }},
+      {VZp,  { Description -> "Z'-Boson",
+               Goldstone -> Ah[{2}] }},
       {gP,   { Description -> "Photon Ghost"}},                                                   
       {gWp,  { Description -> "Positive W+ - Boson Ghost"}}, 
       {gWpC, { Description -> "Negative W+ - Boson Ghost" }}, 
       {gZ,   { Description -> "Z-Boson Ghost" }},
-      {gG,   { Description -> "Gluon Ghost" }},          
-                               
-                 
-      {Fd,   { Description -> "Down-Quarks"}},   
+      {gZp,  { Description -> "Z'-Boson Ghost",
+               FeynArtsNr -> 900,
+               OutputName -> "gZp",
+               ElectricCharge->0}},
+      {gZp,  { Description -> "Z'-Boson Ghost" }},
+      {gG,   { Description -> "Gluon Ghost" }},
+      {Fd,   { Description -> "Down-Quarks"}},
       {Fu,   { Description -> "Up-Quarks"}},   
       {Fe,   { Description -> "Leptons" }},
+      {gWp,  { Description -> "Negative W+ - Boson Ghost",
+               FeynArtsNr -> 901,
+               OutputName -> "gWp",
+               ElectricCharge->1}},
+      {gWpC, { Description -> "Positive W+ - Boson Ghost",
+               FeynArtsNr -> 902,
+               OutputName -> "gWpC",
+                ElectricCharge->-1}},
       {Fv,   { Description -> "Neutrinos" }}                                                              
      
         };    

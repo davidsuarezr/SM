@@ -28,16 +28,15 @@ Gauge[[4]]={Bp,  U[1], Uchi,        gX,False,1};
 
 (* Matter Fields *)
 
-FermionFields[[1]] = {q, 3, {uL, dL},     1/6, 2,  3, 0, 1};
-FermionFields[[2]] = {l, 3, {vL, eL},    -1/2, 2,  1, 0, 1};
-FermionFields[[3]] = {d, 3, conj[dR],     1/3, 1, -3, 0, 1};
-FermionFields[[4]] = {u, 3, conj[uR],    -2/3, 1, -3, 0, 1};
-FermionFields[[5]] = {e, 3, conj[eR],       1, 1,  1, 0, 1};
+FermionFields[[1]] = {q, 3, {uL, dL},     1/6, 2,  3,  0, 1};
+FermionFields[[2]] = {l, 3, {vL, eL},    -1/2, 2,  1,  0, 1};
+FermionFields[[3]] = {d, 3, conj[dR],     1/3, 1, -3,  0, 1};
+FermionFields[[4]] = {u, 3, conj[uR],    -2/3, 1, -3,  0, 1};
+FermionFields[[5]] = {e, 3, conj[eR],       1, 1,  1,  0, 1};
 
-ScalarFields[[1]] =  {H, 1, {Hp, H0},     1/2, 2,  1, 0, 1};
+ScalarFields[[1]] =  {H, 1, {Hp, H0},     1/2, 2,  1,  0, 1};
+ScalarFields[[2]] =  {S, 1,        s,       0, 1,  1, -5, 1};
 
-
-        
 (*----------------------------------------------*)
 (*   DEFINITION                                 *)
 (*----------------------------------------------*)
@@ -47,14 +46,15 @@ NameOfStates={GaugeES, EWSB};
 (* ----- Before EWSB ----- *)
 
 DEFINITION[GaugeES][LagrangianInput]= {
-	{LagHC, {AddHC->True}},
-	{LagNoHC,{AddHC->False}}
+	{LagSMHC, {AddHC->True}},
+	{LagSMNoHC,{AddHC->False}},
+    {LagS,{AddHC->False}}
 };
 
 
-LagNoHC = -mu2 conj[H].H - 1/2 \[Lambda] conj[H].H.conj[H].H;
-LagHC =  -(Yd conj[H].d.q + Ye conj[H].e.l + Yu u.q.H);
-
+LagSMNoHC = -mu2 conj[H].H - 1/2 \[Lambda] conj[H].H.conj[H].H;
+LagSMHC =  -(Yd conj[H].d.q + Ye conj[H].e.l + Yu u.q.H);
+LagS = - mS2 conj[S].S - L1 conj[S].S.conj[S].S - L2 conj[H].H.conj[S].S;
 
 			  		  
 
@@ -62,7 +62,7 @@ LagHC =  -(Yd conj[H].d.q + Ye conj[H].e.l + Yu u.q.H);
 
 DEFINITION[EWSB][GaugeSector] =
 { 
-  {{VB,VWB[3]},{VP,VZ},ZZ},
+  {{VB,VWB[3],VBp},{VP,VZ,VZp},ZZ},
   {{VWB[1],VWB[2]},{VWp,conj[VWp]},ZW}
 };     
         
@@ -72,11 +72,14 @@ DEFINITION[EWSB][GaugeSector] =
 (* ----- VEVs ---- *)
 
 DEFINITION[EWSB][VEVs]= 
-{    {H0, {v, 1/Sqrt[2]}, {Ah, \[ImaginaryI]/Sqrt[2]},{hh, 1/Sqrt[2]}}     };
+{    {H0, {v, 1/Sqrt[2]},  {ih, \[ImaginaryI]/Sqrt[2]},{rh, 1/Sqrt[2]}},
+     {s,  {vS, 1/Sqrt[2]}, {is, \[ImaginaryI]/Sqrt[2]},{rs, 1/Sqrt[2]}}     };
  
 
 DEFINITION[EWSB][MatterSector]=   
-    {{{{dL}, {conj[dR]}}, {{DL,Vd}, {DR,Ud}}},
+    {{{rh,rs},{hh,ZH}},
+     {{ih,is},{Ah,ZA}},
+     {{{dL}, {conj[dR]}}, {{DL,Vd}, {DR,Ud}}},
      {{{uL}, {conj[uR]}}, {{UL,Vu}, {UR,Uu}}},
      {{{eL}, {conj[eR]}}, {{EL,Ve}, {ER,Ue}}}};  
 
