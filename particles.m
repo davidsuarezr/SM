@@ -31,6 +31,13 @@ ParticleDefinitions[GaugeES] = {
 			ElectricCharge -> 0,
 			LaTeX -> "S",
             FeynArtsNr -> 800
+		}},
+
+      {sg, {Description -> "BSM field SIGMA⁰",
+			OutputName -> "SG",
+			ElectricCharge -> 0,
+			LaTeX -> "\\sigma",
+            FeynArtsNr -> 801
 		}}
       };
       
@@ -97,7 +104,13 @@ ParticleDefinitions[GaugeES] = {
                OutputName -> "gWpC",
                 ElectricCharge->-1}},
       {Fv,   { Description -> "Neutrinos",
-      			PDG ->{12,14,16,8810012,8810014,8810016} }}
+      			PDG ->{12,14,16,8810012,8810014,8810016} }},
+      {sg, {Description -> "BSM field SIGMA (EWSB)⁰",
+			OutputName -> "SG",
+			ElectricCharge -> 0,
+			LaTeX -> "\\sigma",
+            FeynArtsNr -> 903
+		}}
      
         };    
         

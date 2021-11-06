@@ -36,7 +36,8 @@ FermionFields[[5]] = {e, 3, conj[eR],       1, 1,  1,  1, 1};
 FermionFields[[6]] = {NR, 3, conj[nr],      0, 1,  1,  1, 1};
 
 ScalarFields[[1]] =  {H, 1, {Hp, H0},     1/2, 2,  1,  0, 1};
-ScalarFields[[2]] =  {S, 1,        s,       0, 1,  1, -2, 1};
+ScalarFields[[2]] =  {SG, 1,      sg,       0, 1,  1,  2, -1};
+ScalarFields[[3]] =  {S, 1,        s,       0, 1,  1, -2, 1};
 
 (*----------------------------------------------*)
 (*   DEFINITION                                 *)
@@ -51,6 +52,7 @@ DEFINITION[GaugeES][LagrangianInput]= {
 	{LagSMNoHC,{AddHC->False}},
     {LagS,{AddHC->False}},
     {LagNR,{AddHC->False}},
+    {LagSG,{AddHC->False}},
     {LagT,{AddHC->True}}
 };
 
@@ -58,8 +60,9 @@ DEFINITION[GaugeES][LagrangianInput]= {
 LagSMNoHC = -mu2 conj[H].H - 1/2 \[Lambda] conj[H].H.conj[H].H;
 LagSMHC =  -(Yd conj[H].d.q + Ye conj[H].e.l + Yu u.q.H);
 LagS = - mS2 conj[S].S - L1 conj[S].S.conj[S].S - L2 conj[H].H.conj[S].S;
+LagSG = - mSG2 conj[SG].SG - L3 conj[SG].SG.conj[SG].SG - L4 conj[H].H.conj[SG].SG - L5 conj[S].S.conj[SG].SG;
 LagNR = -mNR conj[NR].NR;
-LagT = - T1 NR.NR.S - T2 H.l.NR;
+LagT = - T1 NR.NR.S - T2 H.l.NR -T3 SG.SG.S.S
 
 
 (* Gauge Sector *)

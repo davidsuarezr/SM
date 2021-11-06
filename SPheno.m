@@ -1,45 +1,56 @@
 OnlyLowEnergySPheno = True;
 
-MINPAR={{1,LambdaIN},
-{2,gXINPUT},
-{3,g1XINPUT},
-{4,gX1INPUT},
-{5,L1INPUT},
-{6,L2INPUT}
-};
 
+MINPAR={{1,LambdaINPUT},
+        {2,Lambda1INPUT},
+        {3,Lambda2INPUT},
+        {4,Lambda3INPUT},
+        {5,Lambda4INPUT},
+        {6,Lambda5INPUT},
+        {7, gXINPUT},
+        {8, g1XINPUT},
+        {9, gX1INPUT},
+        {10, vSinput},
+        {11, mS2INPUT},
+        {12, T3INPUT}
+        };
 
-ParametersToSolveTadpoles = {mu2, mS2};
+ParametersToSolveTadpoles = {mS2,mu2};
 
-BoundaryLowScaleInput={
-  {\[Lambda],LambdaIN},
-  {gX,gXINPUT},
-  {g1X,g1XINPUT},
-  {gX,gX1INPUT},
-  {L1,L1INPUT},
-  {L2,L2INPUT}
-};
-
-DEFINITION[MatchingConditions]= 
-{{v, vSM}, 
+DEFINITION[MatchingConditions]= {
  {Ye, YeSM},
  {Yd, YdSM},
  {Yu, YuSM},
  {g1, g1SM},
  {g2, g2SM},
- {g3, g3SM}};
+ {g3, g3SM},
+ {v, vSM}
+ };
 
 
-ListDecayParticles = {Fu,Fe,Fd,hh, VZp, Ah};
-ListDecayParticles3B = {{Fu,"Fu.f90"},{Fe,"Fe.f90"},{Fd,"Fd.f90"}};
-
-DefaultInputValues ={LambdaIN -> 0.27};
+BoundaryLowScaleInput={
+ {gX,gXINPUT},
+ {g1X,g1XINPUT},
+ {gX1,gX1INPUT},
+ {\[Lambda],LambdaINPUT},
+ {L1, Lambda1INPUT},
+ {L2, Lambda2INPUT},
+ {L3, Lambda3INPUT},
+ {L4, Lambda4INPUT},
+ {L5, Lambda5INPUT},
+ {T1, LHInput[T1]},
+ {T2, LHInput[T2]},
+ {T3, T3INPUT},
+ {mSG2, mSG2INPUT},
+ {vS,vSinput}
+};
 
 AddTreeLevelUnitarityLimits=True;
 
-RenConditionsDecays={
-{dCosTW, 1/2*Cos[ThetaW] * (PiVWp/(MVWp^2) - PiVZ/(mVZ^2)) },
-{dSinTW, -dCosTW/Tan[ThetaW]},
-{dg2, 1/2*g2*(derPiVPheavy0 + PiVPlightMZ/MVZ^2 - (-(PiVWp/MVWp^2) + PiVZ/MVZ^2)/Tan[ThetaW]^2 + (2*PiVZVP*Tan[ThetaW])/MVZ^2)  },
-{dg1, dg2*Tan[ThetaW]+g2*dSinTW/Cos[ThetaW]- dCosTW*g2*Tan[ThetaW]/Cos[ThetaW]}
-};
+
+ListDecayParticles = {Fu,Fe,Fd,Fv,hh,VZp};
+ListDecayParticles3B = {{Fv,"Fv.f90"},{Fu,"Fu.f90"},{Fe,"Fe.f90"},{Fd,"Fd.f90"}};
+
+
+DefaultInputValues ={Lambda1INPUT -> -0.127, Lambda2INPUT -> -7.2*10^-5, g1pINPUT->0.5, vXinput->2500, Yx[a_,a_]-> 0.32, Yv[a_,a_]->10^-3};
+
