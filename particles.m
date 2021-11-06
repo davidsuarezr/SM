@@ -44,7 +44,19 @@ ParticleDefinitions[GaugeES] = {
 			ElectricCharge -> 0,
 			LaTeX -> "\\sigma_2",
             FeynArtsNr -> 802
-		}}
+		}},
+        {et0,  {  PDG -> 803,
+                 Mass -> Automatic,
+                 FeynArtsNr -> 803,
+                 LaTeX -> "\\eta^0",
+                 OutputName -> "E0" }},
+
+
+        {etm,  {    PDG -> 804,
+                   Mass -> Automatic,
+                   FeynArtsNr -> 804,
+                   LaTeX -> "\\eta^-",
+                   OutputName -> "EM" }}
       };
       
       
@@ -122,6 +134,18 @@ ParticleDefinitions[GaugeES] = {
 			ElectricCharge -> 0,
 			LaTeX -> "\\sigma_2",
             FeynArtsNr -> 904
+		}},
+        {et0, {Description -> "BSM field Eta 0 (EWSB)",
+			OutputName -> "E0",
+			ElectricCharge -> 0,
+			LaTeX -> "\\eta^0",
+            FeynArtsNr -> 905
+		}},
+      {etm, {Description -> "BSM field Eta m (EWSB)",
+			OutputName -> "EM",
+			ElectricCharge -> -1,
+			LaTeX -> "\\eta^-",
+            FeynArtsNr -> 906
 		}}
      
         };    
