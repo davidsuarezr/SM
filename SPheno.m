@@ -17,18 +17,27 @@ MINPAR={{1,LambdaINPUT},
         {14,Lambda13INPUT},
         {15,Lambda14INPUT},
         {16,Lambda15INPUT},
-        {17, gXINPUT},
-        {18, g1XINPUT},
-        {19, gX1INPUT},
-        {20, vSinput},
-        {21, mSG2INPUT},
-        {22, mSG22INPUT},
-        {23, mET2INPUT},
-        {23, mSG22INPUT},
-        {24, YSINPUT},
-        {25, LS4INPUT},
-        {26, T3INPUT},
-        {27, T4INPUT}
+        {17,Lambda16INPUT},
+        {18,Lambda17INPUT},
+        {19,Lambda18INPUT},
+        {20,Lambda19INPUT},
+        {21,Lambda20INPUT},
+        {22,Lambda21INPUT},
+        {23,Lambda22INPUT},
+        {24, gXINPUT},
+        {25, g1XINPUT},
+        {26, gX1INPUT},
+        {27, vSinput},
+        {28, mSG2INPUT},
+        {29, mSG22INPUT},
+        {30, mET2INPUT},
+        {31, mSG22INPUT},
+        {32, YSINPUT},
+        {33, YS1INPUT},
+        {34, LS4INPUT},
+        {35, T3INPUT},
+        {36, T4INPUT},
+        {37, T4INPUT}
         };
 
 ParametersToSolveTadpoles = {mS2,mu2};
@@ -64,16 +73,26 @@ BoundaryLowScaleInput={
  {L13, Lambda13INPUT},
  {L14, Lambda14INPUT},
  {L15, Lambda15INPUT},
+ {L16, Lambda16INPUT},
+ {L17, Lambda17INPUT},
+ {L18, Lambda18INPUT},
+ {L19, Lambda19INPUT},
+ {L20, Lambda20INPUT},
+ {L21, Lambda21INPUT},
+ {L22, Lambda22INPUT},
+ {mSG2, mSG2INPUT},
+ {mSG22, mSG22INPUT},
+ {mET2, mET2INPUT},
+ {mET22, mET22INPUT},
+ {YS, YSINPUT},
+ {YS1, YS1INPUT},
+ {LS4, LS4INPUT},
+ {vS,vSinput},
  {T1, LHInput[T1]},
  {T2, LHInput[T2]},
  {T3, T3INPUT},
  {T4, T4INPUT},
- {mSG2, mSG2INPUT},
- {mSG22, mSG22INPUT},
- {mET2, mET2INPUT},
- {YS, YSINPUT},
- {LS4, LS4INPUT},
- {vS,vSinput}
+ {T5, T5INPUT}
 };
 
 AddTreeLevelUnitarityLimits=True;
@@ -81,7 +100,4 @@ AddTreeLevelUnitarityLimits=True;
 
 ListDecayParticles = {Fu,Fe,Fd,Fv,hh,VZp};
 ListDecayParticles3B = {{Fv,"Fv.f90"},{Fu,"Fu.f90"},{Fe,"Fe.f90"},{Fd,"Fd.f90"}};
-
-
-DefaultInputValues ={Lambda1INPUT -> -0.127, Lambda2INPUT -> -7.2*10^-5, g1pINPUT->0.5, vXinput->2500, Yx[a_,a_]-> 0.32, Yv[a_,a_]->10^-3};
 
