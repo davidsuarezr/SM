@@ -38,6 +38,12 @@ ParticleDefinitions[GaugeES] = {
 			ElectricCharge -> 0,
 			LaTeX -> "\\sigma",
             FeynArtsNr -> 801
+		}},
+      {sg2, {Description -> "BSM field SIGMA 2⁰",
+			OutputName -> "SG2",
+			ElectricCharge -> 0,
+			LaTeX -> "\\sigma_2",
+            FeynArtsNr -> 802
 		}}
       };
       
@@ -110,6 +116,12 @@ ParticleDefinitions[GaugeES] = {
 			ElectricCharge -> 0,
 			LaTeX -> "\\sigma",
             FeynArtsNr -> 903
+		}},
+      {sg2, {Description -> "BSM field SIGMA 2 (EWSB)⁰",
+			OutputName -> "SG2",
+			ElectricCharge -> 0,
+			LaTeX -> "\\sigma_2",
+            FeynArtsNr -> 904
 		}}
      
         };    

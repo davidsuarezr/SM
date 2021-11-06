@@ -7,12 +7,18 @@ MINPAR={{1,LambdaINPUT},
         {4,Lambda3INPUT},
         {5,Lambda4INPUT},
         {6,Lambda5INPUT},
-        {7, gXINPUT},
-        {8, g1XINPUT},
-        {9, gX1INPUT},
-        {10, vSinput},
-        {11, mS2INPUT},
-        {12, T3INPUT}
+        {7,Lambda6INPUT},
+        {8,Lambda7INPUT},
+        {9,Lambda8INPUT},
+        {10,Lambda9INPUT},
+        {11, gXINPUT},
+        {12, g1XINPUT},
+        {13, gX1INPUT},
+        {14, vSinput},
+        {15, mSG2INPUT},
+        {16, mSG22INPUT},
+        {17, T3INPUT},
+        {18, T4INPUT}
         };
 
 ParametersToSolveTadpoles = {mS2,mu2};
@@ -38,10 +44,16 @@ BoundaryLowScaleInput={
  {L3, Lambda3INPUT},
  {L4, Lambda4INPUT},
  {L5, Lambda5INPUT},
+ {L6, Lambda6INPUT},
+ {L7, Lambda7INPUT},
+ {L8, Lambda8INPUT},
+ {L9, Lambda9INPUT},
  {T1, LHInput[T1]},
  {T2, LHInput[T2]},
  {T3, T3INPUT},
+ {T4, T4INPUT},
  {mSG2, mSG2INPUT},
+ {mSG22, mSG22INPUT},
  {vS,vSinput}
 };
 
