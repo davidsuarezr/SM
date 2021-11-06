@@ -48,7 +48,16 @@ ParameterDefinitions = {
              OutputName -> "vS",
              Real -> True,
              LesHouches -> {BS,4} }},
-{mu2,         { Description -> "SM Mu Parameter",
+{T1, {OutputName -> T1,
+      LaTeX -> "T1",
+      LesHouches -> T1}},
+{mNR, {OutputName -> MNR,
+      LaTeX -> "m_{\\nu_R}",
+      LesHouches -> MNR}},
+{T2, {OutputName -> T2,
+      LaTeX -> "T2",
+      LesHouches -> T2}},
+             {mu2,         { Description -> "SM Mu Parameter",
                 OutputName->m2SM}},                                        
 {\[Lambda],  { Description -> "SM Higgs Selfcouplings",
                DependenceNum -> Mass[hh]^2/(v^2)}},
@@ -78,7 +87,8 @@ ParameterDefinitions = {
 {ZA,        { Description->"Pseudo-Scalar-Mixing-Matrix",
                 Dependence -> None,
                DependenceOptional -> None,
-               DependenceNum -> None   }}
+               DependenceNum -> None   }},
+{ZM,	    {Description -> "Neutrino-Mixing-Matrix"}}
  }; 
  
 

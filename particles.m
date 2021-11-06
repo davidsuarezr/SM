@@ -96,7 +96,8 @@ ParticleDefinitions[GaugeES] = {
                FeynArtsNr -> 902,
                OutputName -> "gWpC",
                 ElectricCharge->-1}},
-      {Fv,   { Description -> "Neutrinos" }}                                                              
+      {Fv,   { Description -> "Neutrinos",
+      			PDG ->{12,14,16,8810012,8810014,8810016} }}
      
         };    
         

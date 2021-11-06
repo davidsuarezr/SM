@@ -28,14 +28,15 @@ Gauge[[4]]={Bp,  U[1], Uchi,        gX,False,1};
 
 (* Matter Fields *)
 
-FermionFields[[1]] = {q, 3, {uL, dL},     1/6, 2,  3,  0, 1};
-FermionFields[[2]] = {l, 3, {vL, eL},    -1/2, 2,  1,  0, 1};
-FermionFields[[3]] = {d, 3, conj[dR],     1/3, 1, -3,  0, 1};
-FermionFields[[4]] = {u, 3, conj[uR],    -2/3, 1, -3,  0, 1};
-FermionFields[[5]] = {e, 3, conj[eR],       1, 1,  1,  0, 1};
+FermionFields[[1]] = {q, 3, {uL, dL},     1/6, 2,  3,  1/3, 1};
+FermionFields[[2]] = {l, 3, {vL, eL},    -1/2, 2,  1,  -1, 1};
+FermionFields[[3]] = {d, 3, conj[dR],     1/3, 1, -3,  -1/3, 1};
+FermionFields[[4]] = {u, 3, conj[uR],    -2/3, 1, -3,  -1/3, 1};
+FermionFields[[5]] = {e, 3, conj[eR],       1, 1,  1,  1, 1};
+FermionFields[[6]] = {NR, 3, conj[nr],      0, 1,  1,  1, 1};
 
 ScalarFields[[1]] =  {H, 1, {Hp, H0},     1/2, 2,  1,  0, 1};
-ScalarFields[[2]] =  {S, 1,        s,       0, 1,  1, -5, 1};
+ScalarFields[[2]] =  {S, 1,        s,       0, 1,  1, -2, 1};
 
 (*----------------------------------------------*)
 (*   DEFINITION                                 *)
@@ -48,15 +49,18 @@ NameOfStates={GaugeES, EWSB};
 DEFINITION[GaugeES][LagrangianInput]= {
 	{LagSMHC, {AddHC->True}},
 	{LagSMNoHC,{AddHC->False}},
-    {LagS,{AddHC->False}}
+    {LagS,{AddHC->False}},
+    {LagNR,{AddHC->False}},
+    {LagT,{AddHC->True}}
 };
 
 
 LagSMNoHC = -mu2 conj[H].H - 1/2 \[Lambda] conj[H].H.conj[H].H;
 LagSMHC =  -(Yd conj[H].d.q + Ye conj[H].e.l + Yu u.q.H);
 LagS = - mS2 conj[S].S - L1 conj[S].S.conj[S].S - L2 conj[H].H.conj[S].S;
+LagNR = -mNR conj[NR].NR;
+LagT = - T1 NR.NR.S - T2 H.l.NR;
 
-			  		  
 
 (* Gauge Sector *)
 
@@ -81,7 +85,9 @@ DEFINITION[EWSB][MatterSector]=
      {{ih,is},{Ah,ZA}},
      {{{dL}, {conj[dR]}}, {{DL,Vd}, {DR,Ud}}},
      {{{uL}, {conj[uR]}}, {{UL,Vu}, {UR,Uu}}},
-     {{{eL}, {conj[eR]}}, {{EL,Ve}, {ER,Ue}}}};  
+     {{{eL}, {conj[eR]}}, {{EL,Ve}, {ER,Ue}}},
+     {{vL,conj[nr]}, {VL,ZM}}
+     };
 
 
 (*------------------------------------------------------*)
@@ -92,7 +98,7 @@ DEFINITION[EWSB][DiracSpinors]={
  Fd ->{  DL, conj[DR]},
  Fe ->{  EL, conj[ER]},
  Fu ->{  UL, conj[UR]},
- Fv ->{  vL, 0}};
+ Fv ->{  VL, conj[VL]}};
 
 DEFINITION[EWSB][GaugeES]={
  Fd1 ->{  FdL, 0},
