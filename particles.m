@@ -134,7 +134,7 @@ ParticleDefinitions[GaugeES] = {
                OutputName -> "gWpC",
                 ElectricCharge->-1}},
       {Fv,   { Description -> "Neutrinos",
-      			PDG ->{12,14,16,8810012,8810014,8810016} }},
+      			PDG ->{12,14,16,8810012,8810014} }},
       {sg, {Description -> "BSM field SIGMA (EWSB)⁰",
 			OutputName -> "SG",
 			ElectricCharge -> 0,
@@ -170,6 +170,18 @@ ParticleDefinitions[GaugeES] = {
 			ElectricCharge -> -1,
 			LaTeX -> "\\eta_2^-",
             FeynArtsNr -> 908
+		}},
+      {Fx, {Description -> "Singlet Dirac Fermion Chi",
+			OutputName -> "Chi",
+			ElectricCharge -> 0,
+			LaTeX -> "\\chi",
+            FeynArtsNr -> 909
+		}},
+      {Fx2, {Description -> "Singlet Dirac Fermion Chi 2 ",
+			OutputName -> "Chi2",
+			ElectricCharge -> 0,
+			LaTeX -> "\\chi_2",
+            FeynArtsNr -> 910
 		}}
 
      

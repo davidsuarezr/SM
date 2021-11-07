@@ -35,9 +35,14 @@ MINPAR={{1,LambdaINPUT},
         {32, YSINPUT},
         {33, YS1INPUT},
         {34, LS4INPUT},
-        {35, T3INPUT},
-        {36, T4INPUT},
-        {37, T4INPUT}
+        {35, mCLINPUT},
+        {36, mCRINPUT},
+        {37, mCL2INPUT},
+        {38, mCR2INPUT},
+        {39, YINPUT},
+        {40, Y1INPUT},
+        {41, Y3INPUT},
+        {42, Y4INPUT}
         };
 
 ParametersToSolveTadpoles = {mS2,mu2};
@@ -84,16 +89,22 @@ BoundaryLowScaleInput={
  {mSG22, mSG22INPUT},
  {mET2, mET2INPUT},
  {mET22, mET22INPUT},
+ {mNR, LHInput[mNR]},
  {YS, YSINPUT},
  {YS1, YS1INPUT},
  {LS4, LS4INPUT},
  {vS,vSinput},
- {T1, LHInput[T1]},
- {T2, LHInput[T2]},
- {T3, T3INPUT},
- {T4, T4INPUT},
- {T5, T5INPUT}
-};
+ {mCL, mCLINPUT},
+ {mCR, mCRINPUT},
+ {mCL2, mCL2INPUT},
+ {mCR2, mCR2INPUT},
+ {Y, YINPUT},
+ {Y1, Y1INPUT},
+ {Y2, LHInput[Y2]},
+ {Y3, Y3INPUT},
+ {Y4, Y4INPUT}
+ {Y5, LHInput[Y5]}
+ };
 
 AddTreeLevelUnitarityLimits=True;
 
