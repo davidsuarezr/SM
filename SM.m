@@ -22,18 +22,19 @@ Model`Date = "2014-11-06";
 Gauge[[1]]={B,   U[1], hypercharge, g1,False};
 Gauge[[2]]={WB, SU[2], left,        g2,True};
 Gauge[[3]]={G,  SU[3], color,       g3,False};
+Gauge[[4]]={Bp,  U[1], BminusL,     g1p, False};
 
 
 (* Matter Fields *)
 
-FermionFields[[1]] = {q, 3, {uL, dL},     1/6, 2,  3};  
-FermionFields[[2]] = {l, 3, {vL, eL},    -1/2, 2,  1};
-FermionFields[[3]] = {d, 3, conj[dR],     1/3, 1, -3};
-FermionFields[[4]] = {u, 3, conj[uR],    -2/3, 1, -3};
-FermionFields[[5]] = {e, 3, conj[eR],       1, 1,  1};
+FermionFields[[1]] = {q, 3, {uL, dL},     1/6, 2,  3, 0};
+FermionFields[[2]] = {l, 3, {vL, eL},    -1/2, 2,  1, 0};
+FermionFields[[3]] = {d, 3, conj[dR],     1/3, 1, -3, 0};
+FermionFields[[4]] = {u, 3, conj[uR],    -2/3, 1, -3, 0};
+FermionFields[[5]] = {e, 3, conj[eR],       1, 1,  1, 0};
 
-ScalarFields[[1]] =  {H, 1, {Hp, H0},     1/2, 2,  1};
-
+ScalarFields[[1]] =  {H,  1, {Hp, H0},     1/2, 2,  1,  0};
+ScalarFields[[2]] =  {bi, 1,      BiD,       0,  1, 1, -2};
 
         
 (*----------------------------------------------*)
@@ -60,8 +61,8 @@ LagHC =  -(Yd conj[H].d.q + Ye conj[H].e.l + Yu u.q.H);
 
 DEFINITION[EWSB][GaugeSector] =
 { 
-  {{VB,VWB[3]},{VP,VZ},ZZ},
-  {{VWB[1],VWB[2]},{VWp,conj[VWp]},ZW}
+  {{VB,VWB[3],VBp},{VP,VZ,VZp},ZZ},
+  {{VWB[1],VWB[2]},{VWm,conj[VWm]},ZW}
 };     
         
         
