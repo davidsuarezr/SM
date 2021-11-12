@@ -1,7 +1,8 @@
 
 
 ParticleDefinitions[GaugeES] = {
-      {H0,  {    PDG -> {0},
+      {H0,  { 
+                 PDG -> 0,
                  Width -> 0, 
                  Mass -> Automatic,
                  FeynArtsNr -> 1,
@@ -9,7 +10,8 @@ ParticleDefinitions[GaugeES] = {
                  OutputName -> "H0" }},                         
       
       
-      {Hp,  {    PDG -> {0},
+      {Hp,  { 
+                 PDG -> 0,
                  Width -> 0, 
                  Mass -> Automatic,
                  FeynArtsNr -> 2,
@@ -33,44 +35,52 @@ ParticleDefinitions[GaugeES] = {
   ParticleDefinitions[EWSB] = {
             
       
-    {hh   ,  {  Description -> "Higgs",
-                 PDG -> {25},
-                 PDG.IX -> {101000001} }}, 
+    {hh   ,  { Description -> "Higgs",
+                 PDG -> {25,35},
+                 Width -> Automatic, 
+                 Mass ->LesHouches,
+                 FeynArtsNr -> 1,
+                 LaTeX -> "h",
+                 OutputName -> "h" }}, 
                  
      {Ah   ,  {  Description -> "Pseudo-Scalar Higgs",
+                 PDG -> {0,0},
+                 Width -> {0, External}, 
+                 Mass ->LesHouches,
+                 FeynArtsNr -> 2,
+                 LaTeX -> "A_h",
+                 OutputName -> "Ah" }},                      
+      
+      
+     {Hm,     {   Description -> "Charged Higgs", 
                  PDG -> {0},
-                 PDG.IX ->{0},
-                 Mass -> {0},
-                 Width -> {0} }},                       
+                 Width -> 0, 
+                 Mass ->LesHouches,
+                 FeynArtsNr -> 3,
+                 LaTeX -> "H^-",
+                 OutputName -> "Hm" }},                                              
       
-      
-     {Hp,     { Description -> "Charged Higgs", 
-                 PDG -> {0},
-                 PDG.IX ->{0},
-                 Width -> {0}, 
-                 Mass -> {0},
-                 LaTeX -> {"H^+","H^-"},
-                 OutputName -> {"Hp","Hm"},
-                 ElectricCharge->1
-                 }},                                                   
-      
-      {VP,   { Description -> "Photon"}}, 
+       {VP,   { Description -> "Photon"}}, 
       {VZ,   { Description -> "Z-Boson",
-      			 Goldstone -> Ah }}, 
+      			 Goldstone -> Ah[{1}] }}, 
       {VG,   { Description -> "Gluon" }},          
-      {VWp,  { Description -> "W+ - Boson",
-      			Goldstone -> Hp }},         
+      {VWm,  { Description -> "W-Boson",
+                Goldstone->Hm }},         
       {gP,   { Description -> "Photon Ghost"}},                                                   
-      {gWp,  { Description -> "Positive W+ - Boson Ghost"}}, 
-      {gWpC, { Description -> "Negative W+ - Boson Ghost" }}, 
+      {gWm,  { Description -> "Negative W-Boson Ghost"}}, 
+      {gWmC, { Description -> "Positive W-Boson Ghost" }}, 
       {gZ,   { Description -> "Z-Boson Ghost" }},
       {gG,   { Description -> "Gluon Ghost" }},          
+      {VZp,    { Description -> "Z'-Boson",
+      			 Goldstone -> Ah[{2}]}},  
+      {gZp,    { Description -> "Z'-Ghost" }},    
                                
                  
       {Fd,   { Description -> "Down-Quarks"}},   
       {Fu,   { Description -> "Up-Quarks"}},   
       {Fe,   { Description -> "Leptons" }},
-      {Fv,   { Description -> "Neutrinos" }}                                                              
+      {Fv,   { Description -> "Neutrinos",
+      			PDG ->{12,14,16}}}
      
         };    
         
@@ -78,7 +88,7 @@ ParticleDefinitions[GaugeES] = {
         
  WeylFermionAndIndermediate = {
      
-    {H,      {   PDG -> {0},
+    {H,      {   PDG -> 0,
                  Width -> 0, 
                  Mass -> Automatic,
                  LaTeX -> "H",
