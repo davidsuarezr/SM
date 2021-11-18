@@ -81,6 +81,11 @@ ParameterDefinitions = {
 {MUS, {OutputName -> muS,
       LaTeX -> "\\mu_s",
       LesHouches -> {BL,30}}},
+ {mX,      {  LaTeX -> "m_{\\chi}",
+              Dependence ->  None,
+              OutputName -> MX,
+              Real -> True,
+              LesHouches -> {BL,31} }},
       
 {Vu,        {Description ->"Left-Up-Mixing-Matrix"}},
 {Vd,        {Description ->"Left-Down-Mixing-Matrix"}},
