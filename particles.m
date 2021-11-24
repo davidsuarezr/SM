@@ -80,15 +80,25 @@ ParticleDefinitions[GaugeES] = {
       {Fu,   { Description -> "Up-Quarks"}},   
       {Fe,   { Description -> "Leptons" }},
       {Fv,   { Description -> "Neutrinos",
-      			PDG ->{12,14,16}}},
+     			PDG ->{12,14,16,8810012,8810014} }},
       {Chi,  { Description -> "Singlet Fermions",
 	       PDG -> {1012},
 	       Mass -> LesHouches,
 	       ElectricCharge -> 0,
-	       LaTeX -> "\\Chi",
-	       OutputName -> "Chi" }}
-
-        };
+	       LaTeX -> "\\chi",
+	       OutputName -> "Chi" }},
+	    {sg, {Description -> "BSM field Sigma (EWSB)",
+			OutputName -> "SG",
+			PDG -> {901},
+            Mass ->LesHouches,
+			FeynArtsNr -> 901,
+			ElectricCharge -> 2,
+			LaTeX -> "\\sigma"
+		}
+	}
+     
+        };    
+        
         
         
  WeylFermionAndIndermediate = {

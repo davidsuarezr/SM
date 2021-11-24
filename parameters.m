@@ -49,6 +49,10 @@ ParameterDefinitions = {
 {ZZ, {Description ->   "Photon-Z-Z' Mixing Matrix"}},
 {ZW, {Description -> "W Mixing Matrix"}},
 
+{Yx, {OutputName -> Yx,
+      LaTeX -> "Y_x",
+      LesHouches -> YX}},
+
 {L1, {OutputName -> lam1,
       LaTeX -> "\\lambda_1",
       LesHouches -> {BL,1}}},
@@ -61,6 +65,18 @@ ParameterDefinitions = {
 {L3, {OutputName -> lam3,
       LaTeX -> "\\lambda_3",
       LesHouches -> {BL,3}}},
+
+{L4, {OutputName -> lam4,
+      LaTeX -> "\\lambda_4",
+      LesHouches -> {BL,4}}},
+
+{L5, {OutputName -> lam5,
+      LaTeX -> "\\lambda_5",
+      LesHouches -> {BL,5}}},
+
+{L6, {OutputName -> lam6,
+      LaTeX -> "\\lambda_6",
+      LesHouches -> {BL,6}}},
 
 {MuP, {OutputName -> MUP,
       LaTeX -> "\\mu'",
@@ -78,14 +94,13 @@ ParameterDefinitions = {
       LaTeX -> "\\m^2_\\chi",
       LesHouches -> {BL,21}}},
 
+{mS2, {OutputName -> MS2,
+        LaTeX -> "\\m^2_{\\sigma}",
+        LesHouches -> {BL,31}}},
+
 {MUS, {OutputName -> muS,
       LaTeX -> "\\mu_s",
       LesHouches -> {BL,30}}},
- {mX,      {  LaTeX -> "m_{\\chi}",
-              Dependence ->  None,
-              OutputName -> MX,
-              Real -> True,
-              LesHouches -> {BL,31} }},
       
 {Vu,        {Description ->"Left-Up-Mixing-Matrix"}},
 {Vd,        {Description ->"Left-Down-Mixing-Matrix"}},

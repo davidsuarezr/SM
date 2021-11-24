@@ -17,25 +17,26 @@ Global[[1]] = {Z[2], Z2};
 
 (* Gauge Superfields *)
 
-
-Gauge[[1]]={B,   U[1], hypercharge, g1,  False, 1};
-Gauge[[2]]={WB, SU[2], left,        g2,   True, 1};
-Gauge[[3]]={G,  SU[3], color,       g3,  False, 1};
+Gauge[[1]]={B,   U[1], hypercharge,  g1, False, 1};
+Gauge[[2]]={WB, SU[2], left,         g2,  True, 1};
+Gauge[[3]]={G,  SU[3], color,        g3, False, 1};
 Gauge[[4]]={Bp,  U[1], BminusL,     g1p, False, 1};
 
 
 (* Chiral Superfields *)
 
-FermionFields[[1]] = {q,  3, {uL, dL},    1/6, 2,  3,  0,  1};
-FermionFields[[2]] = {l,  3, {vL, eL},   -1/2, 2,  1,  0,  1};
-FermionFields[[3]] = {d,  3, conj[dR],    1/3, 1, -3,  0,  1};
-FermionFields[[4]] = {u,  3, conj[uR],   -2/3, 1, -3,  0,  1};
-FermionFields[[5]] = {e,  3, conj[eR],      1, 1,  1,  0,  1};
-FermionFields[[6]] = {CL, 1,       cl,      0, 1,  1,  1, -1};
-FermionFields[[7]] = {CR, 1, conj[cr],      0, 1,  1, -1, -1};
+FermionFields[[1]] = { q, 3, {uL, dL},   1/6, 2,  3,  1/3,  1};
+FermionFields[[2]] = { l, 3, {vL, eL},  -1/2, 2,  1,   -1,  1};
+FermionFields[[3]] = { d, 3, conj[dR],   1/3, 1, -3, -1/3,  1};
+FermionFields[[4]] = { u, 3, conj[uR],  -2/3, 1, -3, -1/3,  1};
+FermionFields[[5]] = { e, 3, conj[eR],     1, 1,  1,    1,  1};
+FermionFields[[6]] = { v, 2, conj[vR],     0, 1,  1,  5/3,  1};
+FermionFields[[7]] = {CL, 1,       cl,     0, 1,  1,  7/3, -1};
+FermionFields[[8]] = {CR, 1, conj[cr],     0, 1,  1, -8/3, -1};
 
-ScalarFields[[1]] = {H,  1, {H0, Hm}, -1/2, 2, 1,  0, 1};
-ScalarFields[[2]] = {bi, 1,      BiD,    0, 1, 1,  5, 1};
+ScalarFields[[1]] = {H, 1, {H0, Hm},    -1/2, 2,  1,    0, 1};
+ScalarFields[[2]] = {bi,   1, BiD,    0, 1, 1,  1/3, 1};
+ScalarFields[[3]] = {SG, 1,         sg,    2, 1, 1,    2, -1};
 
 (*----------------------------------------------*)
 (*   DEFINITION                                 *)
@@ -48,14 +49,17 @@ NameOfStates={GaugeES, EWSB};
 DEFINITION[GaugeES][Additional]= {
 	{LagSMHC, {AddHC->True}},
 	{LagSMNoHC,{ AddHC->False}},
-	{LagMX, {AddHC->True}}
+	{LagY, {AddHC->True}},
+		{LagSG,{ AddHC->False}}
 };
 
 LagSMNoHC = -(mu2 conj[H].H - L1 conj[H].H.conj[H].H + MuP conj[bi].bi - L2 conj[bi].bi.conj[bi].bi - L3 conj[bi].bi.conj[H].H);
 
 LagSMHC = - (+ Yd H.d.q + Ye H.e.l - Yu conj[H].u.q);
 
-LagMX = - mX CL.CR;
+LagY = - Yx bi.CL.CR;
+
+LagSG = -(mS2 conj[SG].SG - L4 conj[SG].SG.conj[SG].SG - L5 conj[bi].bi.conj[SG].SG - L6 conj[H].H.conj[SG].SG);
 
 			  		  
 
@@ -83,7 +87,7 @@ DEFINITION[EWSB][MatterSector]=
      {{{dL}, {conj[dR]}}, {{DL,Vd}, {DR,Ud}}},
      {{{uL}, {conj[uR]}}, {{UL,Vu}, {UR,Uu}}},
      {{{eL}, {conj[eR]}}, {{EL,Ve}, {ER,Ue}}},
-     {{vL}, {VL,ZM}}
+     {{vL,conj[vR]}, {VL,ZM}}
 };  
 
 
@@ -96,8 +100,7 @@ DEFINITION[EWSB][DiracSpinors]={
  Fe ->{  EL, conj[ER]},
  Fu ->{  UL, conj[UR]},
  Fv ->{  VL, conj[VL]},
-Chi ->{  cl, cr}
- };
+ Chi ->{  cl,  cr}};
 
 DEFINITION[EWSB][GaugeES]={
  Fd1 ->{  FdL, 0},
